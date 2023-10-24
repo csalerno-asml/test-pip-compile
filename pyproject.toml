@@ -16,5 +16,6 @@ header = false
 output-file = "requirements.txt"
 src-files = [
     "pyproject.toml",
-    "requirements.in"
+    "requirements.in",
+    "requirements.dev.in",
 ]
