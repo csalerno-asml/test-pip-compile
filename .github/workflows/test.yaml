@@ -1,0 +1,29 @@
+---
+name: Test pip-compile workflow
+
+on:
+  push
+
+jobs:
+  test-pip-compile:
+    name: Test pip-compile
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+      
+      - run: pip install pip-tools==7.3.0
+      
+      - name: Store current requirements.txt
+        run: |
+          mv requirements.txt current_requirements.txt
+      
+      - name: Generate again requirements.txt
+        run: pip-compile
+      
+      - name: Get the difference of the two requirements.txt
+        run: |
+          git diff --no-index requirements.txt current_requirements.txt
