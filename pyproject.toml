@@ -3,7 +3,7 @@ name = "my-project"
 version = "1.2.3"
 readme = "README.md"
 requires-python = ">=3.8"
-dynamic = ["description"]
+description = "Long description"
 dependencies = [
     "pytest"
 ]
@@ -16,6 +16,5 @@ header = false
 output-file = "requirements.txt"
 src-files = [
     "pyproject.toml",
-    "requirements.in",
     "requirements.dev.in",
 ]
